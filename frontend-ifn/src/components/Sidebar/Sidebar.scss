@@ -1,0 +1,161 @@
+@use "sass:color";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.sidebar {
+  width: 350px;
+  height: 100vh;
+  background-color: $background-color;
+  border-right: 1px solid $border-color;
+  transition: width 0.3s ease-in-out;
+  overflow-y: auto;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($text-color, 0.2);
+    border-radius: 3px;
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    padding: $small-spacing;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $accent-color;
+    }
+
+    &--open {
+      top: 10px;
+      right: 50%;
+      transform: translateX(50%);
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      padding: 8px;
+    }
+
+    &--closed {
+      background-color: transparent;
+    }
+  }
+
+  &__nav {
+    padding: $medium-spacing 0;
+    padding-top: 50px;
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+
+  &__nav-item {
+    margin-bottom: $medium-spacing;
+  }
+
+  &__nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $small-spacing $medium-spacing;
+    color: $text-color;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: $font-size-medium;
+
+    &:hover,
+    &.active {
+      background-color: #f3f4f6;
+    }
+  }
+
+  &__nav-icon {
+    margin-right: $medium-spacing;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__nav-text {
+    flex-grow: 1;
+    text-align: left;
+  }
+
+  &__nav-arrow {
+    margin-left: auto;
+  }
+
+  &__subnav {
+    list-style-type: none;
+    padding-left: $large-spacing;
+    background-color: lighten($background-color, 2%);
+    margin-left: $large-spacing;
+  }
+
+  &__subnav-item {
+    margin-top: $small-spacing;
+  }
+
+  &__subnav-link {
+    display: flex;
+    align-items: center;
+    padding: $small-spacing/2 $medium-spacing;
+    color: $text-color;
+    text-decoration: none;
+    font-size: 0.9em;
+
+    &:hover {
+      background-color: #f3f4f6;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: $text-color;
+      margin-right: $small-spacing;
+    }
+  }
+
+  &__subnav-circle {
+    display: none;
+  }
+
+  &.closed {
+    width: 60px;
+
+    .sidebar__nav-link {
+      justify-content: center;
+    }
+
+    .sidebar__nav-icon {
+      margin-right: 0;
+    }
+
+    .sidebar__nav-text,
+    .sidebar__nav-arrow,
+    .sidebar__subnav {
+      display: none;
+    }
+  }
+}

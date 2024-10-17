@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+
+.search-bar {
+  position: relative;
+  width: 300px;
+
+  input {
+    width: 100%;
+    padding: $small-spacing;
+    padding-left: 2.5rem;
+    border: 2px solid $text-color;
+    border-radius: 20px;
+    height: 20px; // Modificat definitiv la 20px
+    background-color: $secondary-color;
+    font-size: $font-size-medium;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-color;
+  }
+}

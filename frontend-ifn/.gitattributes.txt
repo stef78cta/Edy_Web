@@ -1,0 +1,13 @@
+# Normalizeaza sfarsiturile de linie pentru toate fisierele text
+* text=auto
+
+# Seteaza sfarsitul de linie la LF pentru fisiere JavaScript si CSS
+*.js text eol=lf
+*.css text eol=lf
+
+# Trateaza imaginile ca fisiere binare
+*.jpg binary
+*.png binary
+
+# Nu aplica reguli de sfarsit de linie pentru fisiere markdown
+*.md text eol=lf

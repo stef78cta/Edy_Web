@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: $primary-font;
+  background-color: $background-color;
+  color: $text-color;
+  font-size: $font-size-medium;
+  line-height: $line-height;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: darken($link-color, 10%);
+  }
+}

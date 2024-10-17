@@ -1,0 +1,34 @@
+@import "../../styles/variables";
+
+.notifications-button {
+  // Stilizează un buton de notificări folosind o clasă specifică.
+
+  padding: $small-spacing;
+  // Adaugă padding în interiorul butonului, folosind o variabilă Sass ($small-spacing) pentru distanța definită anterior.
+
+  color: $text-color;
+  // Definește culoarea textului din interiorul butonului, folosind variabila $text-color.
+
+  transition: color 0.2s ease-in-out;
+  // Aplică o tranziție pentru schimbarea culorii, când are loc hover-ul. Tranziția durează 0.2 secunde și este aplicată cu efect "ease-in-out" (începe și se termină încet).
+
+  border-radius: 50%;
+  // Creează un buton rotund aplicând un border-radius de 50%, ceea ce face ca butonul să aibă formă de cerc.
+
+  background-color: $secondary-color;
+  // Definește culoarea de fundal a butonului, folosind variabila Sass $secondary-color.
+
+  width: 40px;
+  height: 40px;
+  // Setează dimensiunile butonului la 40px atât pentru lățime cât și pentru înălțime, menținându-l un buton pătrat, iar rotunjirea (border-radius) îl transformă într-un cerc.
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // Utilizează Flexbox pentru a centra conținutul butonului (de exemplu, o iconiță) atât pe axa verticală, cât și pe cea orizontală.
+
+  &:hover {
+    color: $accent-color;
+    // Modifică culoarea textului în momentul în care utilizatorul face hover pe buton, schimbând-o la valoarea definită de $accent-color.
+  }
+}

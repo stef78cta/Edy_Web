@@ -1,0 +1,48 @@
+@use "sass:color";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/layout";
+
+.layout {
+  display: flex;
+  height: 100vh;
+  background-color: $background-color;
+
+  &__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    padding: $medium-spacing;
+    background-color: #f3f4f6; // Culoarea de fundal din imagine
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &.sidebar-closed {
+    .sidebar {
+      width: 60px;
+    }
+  }
+}
+
+.navbar__toggle {
+  background: none;
+  border: none;
+  color: $text-color;
+  cursor: pointer;
+  padding: $small-spacing;
+  margin-right: $medium-spacing;
+
+  &:hover {
+    color: $accent-color;
+  }
+}
