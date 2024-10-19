@@ -14,6 +14,16 @@
   }
 
   &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo-image {
+    height: 40px; // Ajustați înălțimea după necesități
+    margin-right: 20px; // Mărim spațiul de la 10px la 20px (sau mai mult, dacă doriți)
+  }
+
+  &__logo-text {
     font-size: $font-size-large;
     font-weight: bold;
   }
