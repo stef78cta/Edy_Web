@@ -3,7 +3,7 @@
 @import "../../styles/mixins";
 
 .sidebar {
-  width: 350px; // Lățimea sidebar-ului deschis
+  width: 350px;
   height: 100vh;
   background-color: $background-color;
   border-right: 1px solid $border-color;
@@ -26,14 +26,6 @@
     width: 350px;
   }
 
-  @include breakpoint(xlarge) {
-    // Ajustări pentru ecrane foarte mari
-  }
-
-  @include breakpoint(ylarge) {
-    // Ajustări pentru ecrane extra mari
-  }
-
   &::-webkit-scrollbar {
     width: 6px;
   }
@@ -47,15 +39,43 @@
     border-radius: 3px;
   }
 
+  &__header {
+    @include sidebar-header-style;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 1.5rem;
+      color: $primary-color;
+      margin: 0;
+    }
+  }
+
+  &__footer {
+    padding: $medium-spacing;
+    border-top: 1px solid $border-color;
+    margin-top: auto;
+
+    p {
+      font-size: 0.8rem;
+      color: $text-color;
+    }
+  }
+
   &__toggle {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: none;
     border: none;
     color: $text-color;
     cursor: pointer;
-    padding: $small-spacing;
+    padding: 0 $small-spacing;
     transition: all 0.3s ease-in-out;
     z-index: 1001;
 
@@ -65,8 +85,7 @@
   }
 
   &__nav {
-    padding: $medium-spacing 0;
-    padding-top: 50px;
+    padding-top: 60px;
 
     ul {
       list-style-type: none;
@@ -96,6 +115,15 @@
     &.active {
       background-color: #f3f4f6;
     }
+
+    .sidebar__nav-icon {
+      margin-right: $medium-spacing;
+    }
+
+    .sidebar__nav-text {
+      flex-grow: 1;
+      text-align: left;
+    }
   }
 
   &__nav-icon {
@@ -103,11 +131,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  &__nav-text {
-    flex-grow: 1;
-    text-align: left;
   }
 
   &__nav-arrow {
@@ -148,17 +171,8 @@
     }
   }
 
-  &__subnav-circle {
-    display: none;
-  }
-
   &.closed {
-    width: 60px; // Lățimea sidebar-ului închis
-
-    .sidebar__toggle {
-      right: 50%;
-      transform: translateX(50%);
-    }
+    width: 60px;
 
     .sidebar__nav-link {
       justify-content: center;
@@ -173,26 +187,14 @@
     .sidebar__subnav {
       display: none;
     }
-  }
-
-  &.open {
-    transform: translateX(0);
-
-    @include breakpoint(large) {
-      // Ajustări pentru ecrane mari când sidebar-ul este deschis
-    }
-
-    @include breakpoint(xlarge) {
-      // Ajustări pentru ecrane foarte mari când sidebar-ul este deschis
-    }
-
-    @include breakpoint(ylarge) {
-      // Ajustări pentru ecrane extra mari când sidebar-ul este deschis
-    }
 
     .sidebar__toggle {
       left: 50%;
       transform: translateX(-50%);
     }
+  }
+
+  &.open {
+    transform: translateX(0);
   }
 }

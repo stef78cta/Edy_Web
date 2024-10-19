@@ -68,23 +68,18 @@
   }
 }
 
-@mixin navbar-style(
-  $background-color: $background-color,
-  $text-color: $text-color,
-  $shadow-color: rgba(0, 0, 0, 0.1)
-) {
+@mixin navbar-style {
   background-color: $background-color;
-  color: $text-color;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 4px $shadow-color;
+  border-bottom: 1px solid $border-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  @include transition(box-shadow);
-
-  &:hover {
-    box-shadow: 0 4px 8px $shadow-color;
-  }
+@mixin sidebar-header-style {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 $medium-spacing;
+  background-color: $background-color;
+  border-bottom: 1px solid $border-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
