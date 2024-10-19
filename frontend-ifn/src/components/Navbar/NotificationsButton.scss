@@ -18,8 +18,8 @@
   background-color: $secondary-color;
   // Definește culoarea de fundal a butonului, folosind variabila Sass $secondary-color.
 
-  width: 40px;
   height: 40px;
+  width: 40px;
   // Setează dimensiunile butonului la 40px atât pentru lățime cât și pentru înălțime, menținându-l un buton pătrat, iar rotunjirea (border-radius) îl transformă într-un cerc.
 
   display: flex;

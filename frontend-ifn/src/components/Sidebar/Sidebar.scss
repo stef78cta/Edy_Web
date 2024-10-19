@@ -3,7 +3,7 @@
 @import "../../styles/mixins";
 
 .sidebar {
-  width: 100%;
+  width: 350px; // Lățimea sidebar-ului deschis
   height: 100vh;
   background-color: $background-color;
   border-right: 1px solid $border-color;
@@ -50,8 +50,7 @@
   &__toggle {
     position: absolute;
     top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 10px;
     background: none;
     border: none;
     color: $text-color;
@@ -62,17 +61,6 @@
 
     &:hover {
       color: $accent-color;
-    }
-
-    &--open {
-      right: 10px;
-    }
-
-    &--closed {
-      right: -40px;
-      background-color: $background-color;
-      border-radius: 0 4px 4px 0;
-      box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
     }
   }
 
@@ -165,31 +153,11 @@
   }
 
   &.closed {
-    width: 70px;
-
-    @include breakpoint(small) {
-      width: 90px;
-    }
-
-    @include breakpoint(medium) {
-      width: 70px;
-    }
-
-    @include breakpoint(large) {
-      // Ajustări pentru ecrane mari când sidebar-ul este închis
-    }
-
-    @include breakpoint(xlarge) {
-      // Ajustări pentru ecrane foarte mari când sidebar-ul este închis
-    }
-
-    @include breakpoint(ylarge) {
-      // Ajustări pentru ecrane extra mari când sidebar-ul este închis
-    }
+    width: 60px; // Lățimea sidebar-ului închis
 
     .sidebar__toggle {
-      left: 50%;
-      transform: translateX(-50%);
+      right: 50%;
+      transform: translateX(50%);
     }
 
     .sidebar__nav-link {

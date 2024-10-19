@@ -3,13 +3,14 @@
 
 .navbar {
   @include navbar-style;
+  height: 60px; // Setăm o înălțime fixă pentru navbar
 
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 $medium-spacing;
     height: 100%;
+    padding: 0 $medium-spacing;
   }
 
   &__logo {
@@ -20,6 +21,7 @@
   &__actions {
     display: flex;
     align-items: center;
+    height: 100%;
   }
 
   @include breakpoint(small) {

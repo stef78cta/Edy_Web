@@ -9,9 +9,11 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <div className="navbar__container">
         <div className="navbar__logo">
-          <span className="navbar__logo-text">FinanceDash</span>
+          <span className="navbar__logo-text">Access Capital</span>
         </div>
-        <SearchBar />
+        <div className="navbar__search">
+          <SearchBar />
+        </div>
         <div className="navbar__actions">
           <NotificationsButton />
           <UserMenuButton />

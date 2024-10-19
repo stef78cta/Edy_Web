@@ -13,7 +13,6 @@ import {
   MessageSquare,
   Settings,
   Menu,
-  X,
 } from "lucide-react";
 import "./Sidebar.scss";
 
@@ -60,7 +59,7 @@ const menuItems: MenuItem[] = [
   {
     name: "Comercial",
     icon: <ShoppingCart size={20} />,
-    subItems: ["Simulare credit", "Solicitari clienti"],
+    subItems: ["Simulare credit", "Solicitari clienti", "Vanzari"],
   },
   {
     name: "Administrare credite",

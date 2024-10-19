@@ -1,16 +1,16 @@
 @import "../../styles/variables";
 
 .user-menu-button {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: $small-spacing;
   color: $text-color;
   transition: color 0.2s ease-in-out;
   border-radius: 50%;
   background-color: $secondary-color;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &:hover {
     color: $accent-color;

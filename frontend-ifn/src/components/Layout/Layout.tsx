@@ -15,15 +15,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div
-      className={`layout ${isSidebarOpen ? "sidebar-open" : "sidebar-closed"}`}
-    >
+    <div className={`layout ${isSidebarOpen ? "" : "sidebar-closed"}`}>
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="layout__main">
         <Navbar />
-        <main className="layout__content">
-          <div className="layout__container">{children}</div>
-        </main>
+        <main className="layout__content">{children}</main>
       </div>
     </div>
   );

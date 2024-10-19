@@ -3,16 +3,21 @@
 .search-bar {
   position: relative;
   width: 300px;
+  height: 100%; // Setăm înălțimea la 100% pentru a ocupa tot spațiul disponibil în navbar
 
   input {
     width: 100%;
-    padding: $small-spacing;
-    padding-left: 2.5rem;
-    border: 2px solid $text-color;
+    height: 40px; // Setăm o înălțime fixă pentru input
+    padding: 0 $medium-spacing 0 2.5rem;
+    border: 2px solid $border-color;
     border-radius: 20px;
-    height: 20px; // Modificat definitiv la 20px
-    background-color: $secondary-color;
+    background-color: $background-color;
     font-size: $font-size-medium;
+    outline: none;
+
+    &:focus {
+      border-color: $accent-color;
+    }
   }
 
   .search-icon {

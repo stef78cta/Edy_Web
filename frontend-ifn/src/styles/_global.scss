@@ -43,14 +43,19 @@ a {
 
 // Butoane
 .button {
-  display: inline-block;
-  padding: $small-spacing $medium-spacing;
+  display: inline-flex; // Schimbăm la inline-flex pentru o aliniere mai bună
+  align-items: center; // Centrăm vertical conținutul
+  justify-content: center; // Centrăm orizontal conținutul
+  width: $button-width;
+  height: $button-height; // Folosim noua variabilă pentru înălțimea butonului
+  padding: 0 $medium-spacing; // Ajustăm padding-ul
   background-color: $primary-color;
   color: $background-color;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: $font-weight-bold;
+  text-align: center;
   @include transition;
 
   &:hover {
@@ -63,6 +68,24 @@ a {
 
     &:hover {
       background-color: darken($secondary-color, 10%);
+    }
+  }
+
+  &.accent {
+    background-color: $accent-color;
+    color: $background-color;
+
+    &:hover {
+      background-color: lighten($accent-color, 10%);
+    }
+  }
+
+  &.tertiary {
+    background-color: $tertiary-color;
+    color: $background-color;
+
+    &:hover {
+      background-color: darken($tertiary-color, 10%);
     }
   }
 }
@@ -191,4 +214,12 @@ img {
   body {
     font-size: $font-size-medium;
   }
+}
+
+// Adăugați acest cod la sfârșitul fișierului _global.scss
+
+.button-group {
+  display: flex;
+  gap: $medium-spacing;
+  flex-wrap: wrap;
 }
