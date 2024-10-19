@@ -43,16 +43,16 @@ a {
 
 // Butoane
 .button {
-  display: inline-flex; // Schimbăm la inline-flex pentru o aliniere mai bună
-  align-items: center; // Centrăm vertical conținutul
-  justify-content: center; // Centrăm orizontal conținutul
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: $button-width;
-  height: $button-height; // Folosim noua variabilă pentru înălțimea butonului
-  padding: 0 $medium-spacing; // Ajustăm padding-ul
+  height: $button-height;
+  padding: 0 $medium-spacing;
   background-color: $primary-color;
   color: $background-color;
   border: none;
-  border-radius: 4px;
+  border-radius: $button-border-radius; // Utilizăm variabila definită în _variables.scss
   cursor: pointer;
   font-weight: $font-weight-bold;
   text-align: center;
