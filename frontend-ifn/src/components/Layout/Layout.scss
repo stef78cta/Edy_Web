@@ -5,31 +5,164 @@
 
 .layout {
   display: flex;
-  height: 100vh;
-  background-color: $background-color;
+  min-height: 100vh;
 
   &__main {
     flex: 1;
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
+
+    @include breakpoint(small) {
+      margin-left: 90px;
+    }
+
+    @include breakpoint(medium) {
+      margin-left: 70px;
+    }
+
+    @include breakpoint(large) {
+      margin-left: 350px;
+    }
+
+    @include breakpoint(xlarge) {
+      // Ajustări pentru ecrane foarte mari
+    }
+
+    @include breakpoint(ylarge) {
+      // Ajustări pentru ecrane extra mari
+    }
   }
 
   &__content {
-    flex: 1;
-    overflow-y: auto;
     padding: $medium-spacing;
-    background-color: #f3f4f6; // Culoarea de fundal din imagine
+    flex: 1;
+    margin-top: 60px; // Adăugăm un margin-top pentru a evita suprapunerea cu navbar-ul
+
+    @include breakpoint(small) {
+      // Ajustări pentru ecrane mici
+    }
+
+    @include breakpoint(medium) {
+      // Ajustări pentru ecrane medii
+    }
+
+    @include breakpoint(large) {
+      // Ajustări pentru ecrane mari
+    }
+
+    @include breakpoint(xlarge) {
+      // Ajustări pentru ecrane foarte mari
+    }
+
+    @include breakpoint(ylarge) {
+      // Ajustări pentru ecrane extra mari
+    }
   }
 
   &__container {
     max-width: 1200px;
     margin: 0 auto;
+
+    @include breakpoint(small) {
+      // Ajustări pentru ecrane mici
+    }
+
+    @include breakpoint(medium) {
+      // Ajustări pentru ecrane medii
+    }
+
+    @include breakpoint(large) {
+      // Ajustări pentru ecrane mari
+    }
+
+    @include breakpoint(xlarge) {
+      // Ajustări pentru ecrane foarte mari
+    }
+
+    @include breakpoint(ylarge) {
+      // Ajustări pentru ecrane extra mari
+    }
   }
 
   &.sidebar-closed {
-    .sidebar {
-      width: 60px;
+    .layout__main {
+      margin-left: 70px;
+
+      @include breakpoint(small) {
+        margin-left: 90px;
+      }
+
+      @include breakpoint(medium) {
+        margin-left: 70px;
+      }
+
+      @include breakpoint(large) {
+        // Ajustări pentru ecrane mari
+      }
+
+      @include breakpoint(xlarge) {
+        // Ajustări pentru ecrane foarte mari
+      }
+
+      @include breakpoint(ylarge) {
+        // Ajustări pentru ecrane extra mari
+      }
+    }
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 999;
+  transition: left 0.3s ease-in-out;
+
+  @include breakpoint(small) {
+    left: 90px;
+  }
+
+  @include breakpoint(medium) {
+    left: 70px;
+  }
+
+  @include breakpoint(large) {
+    left: 350px;
+  }
+
+  @include breakpoint(xlarge) {
+    // Ajustări pentru ecrane foarte mari
+  }
+
+  @include breakpoint(ylarge) {
+    // Ajustări pentru ecrane extra mari
+  }
+
+  .layout.sidebar-closed & {
+    left: 70px;
+
+    @include breakpoint(small) {
+      left: 90px;
+    }
+
+    @include breakpoint(medium) {
+      left: 70px;
+    }
+
+    @include breakpoint(large) {
+      // Ajustări pentru ecrane mari
+    }
+
+    @include breakpoint(xlarge) {
+      // Ajustări pentru ecrane foarte mari
+    }
+
+    @include breakpoint(ylarge) {
+      // Ajustări pentru ecrane extra mari
     }
   }
 }
@@ -44,5 +177,25 @@
 
   &:hover {
     color: $accent-color;
+  }
+
+  @include breakpoint(small) {
+    // Ajustări pentru ecrane mici
+  }
+
+  @include breakpoint(medium) {
+    // Ajustări pentru ecrane medii
+  }
+
+  @include breakpoint(large) {
+    // Ajustări pentru ecrane mari
+  }
+
+  @include breakpoint(xlarge) {
+    // Ajustări pentru ecrane foarte mari
+  }
+
+  @include breakpoint(ylarge) {
+    // Ajustări pentru ecrane extra mari
   }
 }

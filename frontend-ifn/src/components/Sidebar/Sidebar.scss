@@ -3,13 +3,36 @@
 @import "../../styles/mixins";
 
 .sidebar {
-  width: 350px;
+  width: 100%;
   height: 100vh;
   background-color: $background-color;
   border-right: 1px solid $border-color;
-  transition: width 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   overflow-y: auto;
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+
+  @include breakpoint(small) {
+    width: 90%;
+  }
+
+  @include breakpoint(medium) {
+    width: 70%;
+  }
+
+  @include breakpoint(large) {
+    width: 350px;
+  }
+
+  @include breakpoint(xlarge) {
+    // Ajustări pentru ecrane foarte mari
+  }
+
+  @include breakpoint(ylarge) {
+    // Ajustări pentru ecrane extra mari
+  }
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -27,29 +50,29 @@
   &__toggle {
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     background: none;
     border: none;
     color: $text-color;
     cursor: pointer;
     padding: $small-spacing;
     transition: all 0.3s ease-in-out;
+    z-index: 1001;
 
     &:hover {
       color: $accent-color;
     }
 
     &--open {
-      top: 10px;
-      right: 50%;
-      transform: translateX(50%);
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      padding: 8px;
+      right: 10px;
     }
 
     &--closed {
-      background-color: transparent;
+      right: -40px;
+      background-color: $background-color;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
     }
   }
 
@@ -142,7 +165,32 @@
   }
 
   &.closed {
-    width: 60px;
+    width: 70px;
+
+    @include breakpoint(small) {
+      width: 90px;
+    }
+
+    @include breakpoint(medium) {
+      width: 70px;
+    }
+
+    @include breakpoint(large) {
+      // Ajustări pentru ecrane mari când sidebar-ul este închis
+    }
+
+    @include breakpoint(xlarge) {
+      // Ajustări pentru ecrane foarte mari când sidebar-ul este închis
+    }
+
+    @include breakpoint(ylarge) {
+      // Ajustări pentru ecrane extra mari când sidebar-ul este închis
+    }
+
+    .sidebar__toggle {
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
     .sidebar__nav-link {
       justify-content: center;
@@ -156,6 +204,27 @@
     .sidebar__nav-arrow,
     .sidebar__subnav {
       display: none;
+    }
+  }
+
+  &.open {
+    transform: translateX(0);
+
+    @include breakpoint(large) {
+      // Ajustări pentru ecrane mari când sidebar-ul este deschis
+    }
+
+    @include breakpoint(xlarge) {
+      // Ajustări pentru ecrane foarte mari când sidebar-ul este deschis
+    }
+
+    @include breakpoint(ylarge) {
+      // Ajustări pentru ecrane extra mari când sidebar-ul este deschis
+    }
+
+    .sidebar__toggle {
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

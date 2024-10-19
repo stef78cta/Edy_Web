@@ -1,74 +1,44 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
-@import "../../styles/layout";
 
 .navbar {
-  background-color: $background-color;
-  border-bottom: 1px solid $border-color;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Adăugat umbra la marginea de jos
+  @include navbar-style;
 
   &__container {
-    @extend .container;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    padding: 0 $medium-spacing;
+    height: 100%;
   }
 
   &__logo {
-    display: flex;
-    align-items: center;
-    height: 40px;
-
-    &-text {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: $text-color;
-    }
+    font-size: $font-size-large;
+    font-weight: bold;
   }
 
   &__actions {
     display: flex;
     align-items: center;
-    gap: $medium-spacing;
-    height: 40px;
   }
 
-  &__button {
-    padding: $small-spacing;
-    color: $text-color;
-    transition: color 0.2s ease-in-out;
-    border-radius: 50%;
-    background-color: $secondary-color;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-      color: $accent-color;
-    }
+  @include breakpoint(small) {
+    // Ajustări pentru ecrane mici
   }
 
-  &__search {
-    position: relative;
-    width: 300px;
+  @include breakpoint(medium) {
+    // Ajustări pentru ecrane medii
+  }
 
-    input {
-      width: 100%;
-      padding: $small-spacing;
-      padding-left: 2.5rem;
-      border: 1px solid $border-color;
-      border-radius: 4px;
-    }
+  @include breakpoint(large) {
+    // Ajustări pentru ecrane mari
+  }
 
-    .search-icon {
-      position: absolute;
-      left: 0.75rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: $text-color;
-    }
+  @include breakpoint(xlarge) {
+    // Ajustări pentru ecrane foarte mari
+  }
+
+  @include breakpoint(ylarge) {
+    // Ajustări pentru ecrane extra mari
   }
 }

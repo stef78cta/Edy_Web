@@ -1,23 +1,90 @@
+// Mixin pentru centrare cu Flexbox
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin truncate {
-  white-space: nowrap;
+// Mixin pentru text truncat (ellipsă)
+@mixin text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-@mixin responsive($breakpoint) {
-  @if $breakpoint == tablet {
-    @media (min-width: 768px) {
+// Mixin unificat pentru breakpoint-uri
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media (min-width: $breakpoint-small) {
       @content;
     }
-  } @else if $breakpoint == desktop {
-    @media (min-width: 1024px) {
+  } @else if $point == medium {
+    @media (min-width: $breakpoint-medium) {
       @content;
     }
+  } @else if $point == large {
+    @media (min-width: $breakpoint-large) {
+      @content;
+    }
+  } @else if $point == xlarge {
+    @media (min-width: $breakpoint-xlarge) {
+      @content;
+    }
+  } @else if $point == ylarge {
+    @media (min-width: $breakpoint-ylarge) {
+      @content;
+    }
+  }
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease-in-out) {
+  transition: $property $duration $timing;
+}
+
+@mixin box-shadow($x: 0, $y: 2px, $blur: 4px, $color: rgba(0, 0, 0, 0.1)) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin gradient($start-color, $end-color, $direction: to bottom) {
+  background: $start-color;
+  background: linear-gradient($direction, $start-color, $end-color);
+}
+
+@mixin hover-underline($color: currentColor, $height: 2px) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: $height;
+    bottom: 0;
+    left: 0;
+    background-color: $color;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@mixin navbar-style(
+  $background-color: $background-color,
+  $text-color: $text-color,
+  $shadow-color: rgba(0, 0, 0, 0.1)
+) {
+  background-color: $background-color;
+  color: $text-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px $shadow-color;
+
+  @include transition(box-shadow);
+
+  &:hover {
+    box-shadow: 0 4px 8px $shadow-color;
   }
 }

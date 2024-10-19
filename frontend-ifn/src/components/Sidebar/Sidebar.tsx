@@ -13,6 +13,7 @@ import {
   MessageSquare,
   Settings,
   Menu,
+  X,
 } from "lucide-react";
 import "./Sidebar.scss";
 
@@ -153,10 +154,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   return (
     <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <button
-        className={`sidebar__toggle ${
-          isOpen ? "sidebar__toggle--open" : "sidebar__toggle--closed"
-        }`}
+        className="sidebar__toggle"
         onClick={toggleSidebar}
+        aria-label={isOpen ? "Close sidebar" : "Open sidebar"}
       >
         <Menu size={24} />
       </button>
