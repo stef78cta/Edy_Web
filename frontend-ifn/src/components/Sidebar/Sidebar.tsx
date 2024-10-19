@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Menu } from "lucide-react";
 import SidebarHeader from "./SidebarHeader";
 import SidebarItem from "./SidebarItem";
 import SidebarSubMenu from "./SidebarSubMenu";
@@ -18,6 +17,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   const toggleMenuItem = (itemName: string) => {
+    if (!isOpen) {
+      toggleSidebar(); // Deschide sidebar-ul dacă este închis
+    }
     if (expandedItem === itemName) {
       setExpandedItem(null);
     } else {
