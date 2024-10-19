@@ -1,6 +1,8 @@
 import React from "react";
 import Layout from "./components/Layout/Layout";
 import Button from "./components/Button/Button";
+import DataTable from "./components/DataTable/DataTable";
+import { GridColDef } from "@mui/x-data-grid";
 import "./styles/main.scss";
 
 const App: React.FC = () => {
@@ -8,6 +10,22 @@ const App: React.FC = () => {
     console.log("Butonul a fost apăsat");
     // Aici puteți adăuga logica pentru acțiunea de adăugare
   };
+
+  // Date de exemplu pentru DataTable
+  const rows = [
+    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
+    { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
+    { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
+    { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
+    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
+  ];
+
+  const columns: GridColDef[] = [
+    { field: "id", headerName: "ID", width: 90 },
+    { field: "firstName", headerName: "First name", width: 150 },
+    { field: "lastName", headerName: "Last name", width: 150 },
+    { field: "age", headerName: "Age", type: "number", width: 110 },
+  ];
 
   return (
     <Layout>
@@ -98,6 +116,11 @@ const App: React.FC = () => {
           >
             Flex centrat
           </div>
+        </section>
+
+        <section className="mt-3">
+          <h3>DataTable Component</h3>
+          <DataTable rows={rows} columns={columns} />
         </section>
       </div>
     </Layout>

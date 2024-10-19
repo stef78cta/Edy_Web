@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.data-table-container {
+  margin: $medium-spacing;
+  padding: $medium-spacing;
+
+  .MuiDataGrid-root {
+    border: none;
+  }
+
+  .MuiDataGrid-columnHeaders {
+    background-color: $primary-color;
+    color: $background-color;
+  }
+
+  .MuiDataGrid-cell {
+    border-bottom: 1px solid $border-color;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $medium-spacing;
+
+    .action-button {
+      margin-left: $small-spacing;
+      padding: $small-spacing;
+      display: flex;
+      align-items: center;
+      background-color: $primary-color;
+      color: $background-color;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+
+      svg {
+        margin-right: $small-spacing;
+      }
+    }
+  }
+}

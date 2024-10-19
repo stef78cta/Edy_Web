@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.4",
+    "@mui/styled-engine": "^6.1.4",
+    "@mui/system": "^6.1.4",
+    "@mui/x-data-grid": "^7.21.0",
     "@reduxjs/toolkit": "^2.3.0",
     "@refinedev/core": "^4.55.0",
     "@refinedev/react-hook-form": "^4.9.0",
