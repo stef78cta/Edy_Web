@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import SidebarHeader from "./SidebarHeader";
 import SidebarItem from "./SidebarItem";
 import SidebarSubMenu from "./SidebarSubMenu";
-import SidebarFooter from "./SidebarFooter";
 import SidebarToggle from "./SidebarToggle";
 import { menuItems } from "./SidebarData";
 import "./Sidebar.scss";
@@ -30,8 +29,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
   return (
     <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
-      <SidebarToggle toggleSidebar={toggleSidebar} isOpen={isOpen} />
       <SidebarHeader />
+      <SidebarToggle toggleSidebar={toggleSidebar} isOpen={isOpen} />
       <nav className="sidebar__nav">
         <ul>
           {menuItems.map((item) => (
@@ -56,7 +55,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           ))}
         </ul>
       </nav>
-      <SidebarFooter />
     </aside>
   );
 };

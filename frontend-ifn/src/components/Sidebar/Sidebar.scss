@@ -13,6 +13,8 @@
   left: 0;
   top: 0;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
 
   @include breakpoint(small) {
     width: 90%;
@@ -40,9 +42,17 @@
   }
 
   &__header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 60px; // Aceeași înălțime ca navbar-ul
+    display: flex;
+    align-items: center;
+    padding: 0 $medium-spacing;
+    background-color: $background-color;
+    border-bottom: 1px solid $border-color;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Adăugăm umbra pentru consistență cu navbar-ul
     @include sidebar-header-style;
-    position: relative;
-    z-index: 1;
 
     h1 {
       font-size: 1.5rem;
@@ -85,7 +95,9 @@
   }
 
   &__nav {
-    padding-top: 60px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-top: $medium-spacing;
 
     ul {
       list-style-type: none;
