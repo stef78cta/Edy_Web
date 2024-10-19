@@ -12,19 +12,41 @@ const App: React.FC = () => {
   };
 
   // Date de exemplu pentru DataTable
-  const rows = [
-    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-    { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-    { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-    { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  ];
+  const rows = Array.from({ length: 40 }, (_, index) => ({
+    id: index + 1,
+    lastName: `Nume${index + 1}`,
+    firstName: `Prenume${index + 1}`,
+    age: Math.floor(Math.random() * 50) + 20,
+    contDebit: `1011${index}`,
+    contCredit: `2011${index}`,
+    suma: Math.floor(Math.random() * 10000),
+    explicatii: `Explicatie ${index + 1}`,
+    tipValuta: index % 2 === 0 ? "RON" : "EUR",
+    curs: index % 2 === 0 ? 1 : 4.9,
+    sumaValuta: Math.floor(Math.random() * 2000),
+    tipDocument: `Doc${index + 1}`,
+    partener: `Partener${index + 1}`,
+  }));
 
   const columns: GridColDef[] = [
-    { field: "id", headerName: "ID", width: 90 },
-    { field: "firstName", headerName: "First name", width: 150 },
-    { field: "lastName", headerName: "Last name", width: 150 },
-    { field: "age", headerName: "Age", type: "number", width: 110 },
+    { field: "id", headerName: "ID", width: 70 },
+    { field: "firstName", headerName: "Prenume", width: 130 },
+    { field: "lastName", headerName: "Nume", width: 130 },
+    { field: "age", headerName: "Vârsta", type: "number", width: 90 },
+    { field: "contDebit", headerName: "Cont Debit", width: 110 },
+    { field: "contCredit", headerName: "Cont Credit", width: 110 },
+    { field: "suma", headerName: "Suma", type: "number", width: 110 },
+    { field: "explicatii", headerName: "Explicații", width: 200 },
+    { field: "tipValuta", headerName: "Tip Valută", width: 100 },
+    { field: "curs", headerName: "Curs", type: "number", width: 90 },
+    {
+      field: "sumaValuta",
+      headerName: "Suma Valută",
+      type: "number",
+      width: 120,
+    },
+    { field: "tipDocument", headerName: "Tip Document", width: 130 },
+    { field: "partener", headerName: "Partener", width: 150 },
   ];
 
   return (

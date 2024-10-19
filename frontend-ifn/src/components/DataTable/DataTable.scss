@@ -6,12 +6,13 @@
   padding: $medium-spacing;
 
   .MuiDataGrid-root {
-    border: none;
+    border: 1px solid $border-color;
   }
 
   .MuiDataGrid-columnHeaders {
-    background-color: $primary-color;
-    color: $background-color;
+    background-color: lighten($primary-color, 40%);
+    color: $text-color;
+    font-weight: bold;
   }
 
   .MuiDataGrid-cell {

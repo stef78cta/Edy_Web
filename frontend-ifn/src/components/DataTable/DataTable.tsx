@@ -60,6 +60,11 @@ const DataTable: React.FC<DataTableProps> = ({ rows, columns }) => {
         autoHeight
         sortModel={sortModel}
         onSortModelChange={(model) => setSortModel(model)}
+        sx={{
+          "& .MuiDataGrid-cell:hover": {
+            color: "primary.main",
+          },
+        }}
       />
       <ActionButtons />
     </Paper>
