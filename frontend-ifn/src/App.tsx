@@ -31,6 +31,9 @@ const App: React.FC = () => {
             <Button onClick={handleAddClick} variant="tertiary">
               Tertiar
             </Button>
+            <Button onClick={handleAddClick} variant="four">
+              Four
+            </Button>
           </div>
         </section>
 
@@ -78,9 +81,9 @@ const App: React.FC = () => {
               <label htmlFor="message">Mesaj:</label>
               <textarea id="message" name="message"></textarea>
             </div>
-            <button type="submit" className="button">
+            <Button type="submit" variant="primary">
               Trimite
-            </button>
+            </Button>
           </form>
         </section>
 

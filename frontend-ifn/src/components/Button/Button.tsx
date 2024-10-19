@@ -1,10 +1,10 @@
 import React from "react";
 
-interface ButtonProps {
-  onClick: () => void;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  onClick?: () => void;
   children: React.ReactNode;
   className?: string;
-  variant?: "primary" | "secondary" | "accent" | "tertiary";
+  variant?: "primary" | "secondary" | "accent" | "tertiary" | "four";
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -12,11 +12,13 @@ const Button: React.FC<ButtonProps> = ({
   children,
   className = "",
   variant = "primary",
+  type = "button",
+  ...rest
 }) => {
   const buttonClass = `button ${variant} ${className}`.trim();
 
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button className={buttonClass} onClick={onClick} type={type} {...rest}>
       {children}
     </button>
   );

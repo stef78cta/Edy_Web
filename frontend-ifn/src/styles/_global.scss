@@ -88,6 +88,15 @@ a {
       background-color: darken($tertiary-color, 10%);
     }
   }
+
+  &.four {
+    background-color: $fourth-color;
+    color: $background-color;
+
+    &:hover {
+      background-color: darken($fourth-color, 10%);
+    }
+  }
 }
 
 // Formulare
