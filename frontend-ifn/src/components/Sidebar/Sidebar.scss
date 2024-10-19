@@ -23,7 +23,7 @@ body {
 
   // Stilizare scrollbar pentru sidebar
   &::-webkit-scrollbar {
-    width: 1px; // Facem scrollbar-ul foarte subțire
+    width: 1px; // Scrollbar extrem de subțire
   }
 
   &::-webkit-scrollbar-track {
@@ -31,8 +31,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba($text-color, 0.1); // Păstrăm transparența
-    border-radius: 1px;
+    background-color: transparent; // Scrollbar complet transparent
   }
 
   // Ascundem scrollbar-ul când nu este folosit
@@ -42,11 +41,12 @@ body {
 
   &:hover::-webkit-scrollbar-thumb:vertical {
     display: block;
+    background-color: rgba($text-color, 0.1); // Ușor vizibil la hover
   }
 
   // Stiluri pentru Firefox
   scrollbar-width: thin;
-  scrollbar-color: rgba($text-color, 0.1) transparent;
+  scrollbar-color: transparent transparent;
 
   @include breakpoint(small) {
     width: 90%;

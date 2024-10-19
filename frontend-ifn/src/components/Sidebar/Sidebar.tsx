@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import SidebarHeader from "./SidebarHeader";
 import SidebarItem from "./SidebarItem";
 import SidebarSubMenu from "./SidebarSubMenu";
+import SidebarFooter from "./SidebarFooter";
+import SidebarToggle from "./SidebarToggle";
 import { menuItems } from "./SidebarData";
 import "./Sidebar.scss";
 
@@ -13,7 +15,6 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
 
   const toggleMenuItem = (itemName: string) => {
     if (!isOpen) {
@@ -27,16 +28,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     setSelectedItem(itemName);
   };
 
-  useEffect(() => {
-    if (navRef.current) {
-      navRef.current.scrollTop = 0;
-    }
-  }, [isOpen]);
-
   return (
     <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
+      <SidebarToggle toggleSidebar={toggleSidebar} isOpen={isOpen} />
       <SidebarHeader isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <nav className="sidebar__nav" ref={navRef}>
+      <nav className="sidebar__nav">
         <ul>
           {menuItems.map((item) => (
             <li key={item.label} className="sidebar__nav-item">
@@ -60,6 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           ))}
         </ul>
       </nav>
+      <SidebarFooter />
     </aside>
   );
 };

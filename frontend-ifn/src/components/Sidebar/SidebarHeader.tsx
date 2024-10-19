@@ -1,5 +1,4 @@
 import React from "react";
-import SidebarToggle from "./SidebarToggle";
 
 interface SidebarHeaderProps {
   isOpen: boolean;
@@ -12,8 +11,8 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = ({
 }) => {
   return (
     <div className="sidebar__header">
-      {isOpen && <h1 style={{ margin: 0, fontSize: "1.2rem" }}></h1>}
-      <SidebarToggle toggleSidebar={toggleSidebar} isOpen={isOpen} />
+      {isOpen && <h1></h1>}
+      {/* Puteți utiliza isOpen și toggleSidebar aici dacă este necesar */}
     </div>
   );
 };

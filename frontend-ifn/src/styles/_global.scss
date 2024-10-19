@@ -16,6 +16,11 @@ body {
   color: $text-color;
   font-size: $font-size-medium;
   line-height: $line-height;
+  height: 100%; // Adăugăm această linie
+}
+
+body {
+  overflow-y: auto; // Schimbăm din 'hidden' în 'auto'
 }
 
 // Link-uri

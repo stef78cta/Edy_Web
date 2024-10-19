@@ -6,6 +6,7 @@
 .layout {
   display: flex;
   min-height: 100vh;
+  overflow-x: hidden; // Adăugăm această linie pentru a preveni scroll-ul orizontal
 
   &__main {
     flex: 1;
@@ -13,6 +14,8 @@
     transition: margin-left 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
+    overflow-y: auto; // Adăugăm această linie
+    height: 100vh; // Adăugăm această linie
 
     @include breakpoint(small) {
       margin-left: 60px; // Ajustăm pentru sidebar-ul închis
@@ -39,6 +42,7 @@
     padding: $medium-spacing;
     flex: 1;
     margin-top: 60px; // Înălțimea navbar-ului
+    overflow-y: auto; // Adăugăm această linie
 
     @include breakpoint(small) {
       // Ajustări pentru ecrane mici
