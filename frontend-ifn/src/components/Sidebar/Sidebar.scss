@@ -2,6 +2,11 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 
+// Eliminăm scrollbar-ul de pe pagina principală
+body {
+  overflow: hidden;
+}
+
 .sidebar {
   width: 350px;
   height: 100vh;
@@ -16,6 +21,36 @@
   display: flex;
   flex-direction: column;
 
+  // Stilizare scrollbar pentru sidebar
+  &::-webkit-scrollbar {
+    width: 4px; // Facem scrollbar-ul mai subțire
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(
+      $text-color,
+      0.1
+    ); // Facem scrollbar-ul mai transparent
+    border-radius: 2px;
+  }
+
+  // Ascundem scrollbar-ul când nu este folosit
+  &::-webkit-scrollbar-thumb:vertical {
+    display: none;
+  }
+
+  &:hover::-webkit-scrollbar-thumb:vertical {
+    display: block;
+  }
+
+  // Stiluri pentru Firefox
+  scrollbar-width: thin;
+  scrollbar-color: rgba($text-color, 0.1) transparent;
+
   @include breakpoint(small) {
     width: 90%;
   }
@@ -28,30 +63,17 @@
     width: 350px;
   }
 
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba($text-color, 0.2);
-    border-radius: 3px;
-  }
-
   &__header {
     position: sticky;
     top: 0;
     z-index: 10;
-    height: 60px; // Aceeași înălțime ca navbar-ul
+    height: 60px;
     display: flex;
     align-items: center;
     padding: 0 $medium-spacing;
     background-color: $background-color;
     border-bottom: 1px solid $border-color;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Adăugăm umbra pentru consistență cu navbar-ul
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     @include sidebar-header-style;
 
     h1 {
@@ -150,7 +172,7 @@
   }
 
   &__subnav {
-    list-style-type: none;
+    list-style-type: disc; // Schimbăm înapoi la disc pentru a avea bullet points
     padding-left: $large-spacing;
     background-color: lighten($background-color, 2%);
     margin-left: $large-spacing;
@@ -173,12 +195,9 @@
     }
 
     &::before {
-      content: "";
+      content: "•"; // Adăugăm un bullet point personalizat
       display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: $text-color;
+      width: 1em;
       margin-right: $small-spacing;
     }
   }

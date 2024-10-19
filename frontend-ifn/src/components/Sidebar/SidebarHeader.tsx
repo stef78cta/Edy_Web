@@ -1,10 +1,19 @@
 import React from "react";
+import SidebarToggle from "./SidebarToggle";
 
-const SidebarHeader: React.FC = () => {
+interface SidebarHeaderProps {
+  isOpen: boolean;
+  toggleSidebar: () => void;
+}
+
+const SidebarHeader: React.FC<SidebarHeaderProps> = ({
+  isOpen,
+  toggleSidebar,
+}) => {
   return (
     <div className="sidebar__header">
-      <h1 style={{ margin: 0 }}></h1>
-      {/* Adaugă aici orice alt conținut pentru header */}
+      {isOpen && <h1 style={{ margin: 0, fontSize: "1.2rem" }}></h1>}
+      <SidebarToggle toggleSidebar={toggleSidebar} isOpen={isOpen} />
     </div>
   );
 };
