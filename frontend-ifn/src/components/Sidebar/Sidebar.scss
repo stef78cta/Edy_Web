@@ -23,7 +23,7 @@ body {
 
   // Stilizare scrollbar pentru sidebar
   &::-webkit-scrollbar {
-    width: 4px; // Facem scrollbar-ul mai subțire
+    width: 1px; // Facem scrollbar-ul foarte subțire
   }
 
   &::-webkit-scrollbar-track {
@@ -31,11 +31,8 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(
-      $text-color,
-      0.1
-    ); // Facem scrollbar-ul mai transparent
-    border-radius: 2px;
+    background-color: rgba($text-color, 0.1); // Păstrăm transparența
+    border-radius: 1px;
   }
 
   // Ascundem scrollbar-ul când nu este folosit
