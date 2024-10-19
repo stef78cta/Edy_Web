@@ -1,3 +1,14 @@
+@import "variables";
+@import "mixins";
+
+body {
+  font-family: $primary-font;
+  font-size: $body-font-size;
+  line-height: $line-height;
+  color: $text-color;
+}
+
+// Titluri
 h1,
 h2,
 h3,
@@ -7,20 +18,165 @@ h6 {
   font-family: $secondary-font;
   color: $text-color;
   line-height: 1.2;
+  margin-bottom: $medium-spacing;
 }
 
 h1 {
   font-size: 2.5rem;
+  font-weight: $font-weight-bold;
 }
+
 h2 {
   font-size: 2rem;
+  font-weight: $font-weight-bold;
 }
+
 h3 {
   font-size: 1.75rem;
+  font-weight: $font-weight-normal;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: $font-weight-normal;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: $font-weight-normal;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: $font-weight-bold;
 }
 
 p {
   font-size: $font-size-medium;
   margin-bottom: $small-spacing;
   color: $text-color;
+}
+
+// Clase de utilitate
+.text-small {
+  font-size: $font-size-small;
+}
+
+.text-large {
+  font-size: $font-size-large;
+}
+
+.text-bold {
+  font-weight: $font-weight-bold;
+}
+
+.text-light {
+  font-weight: $font-weight-light;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-truncate {
+  @include text-truncate;
+}
+
+// Responsive typography
+@include breakpoint(small) {
+  body {
+    font-size: $font-size-small;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+  h5 {
+    font-size: 1.1rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+}
+
+@include breakpoint(large) {
+  body {
+    font-size: $font-size-medium;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+}
+
+// Link styles
+a {
+  color: $link-color;
+  text-decoration: none;
+  @include transition(color);
+
+  &:hover {
+    color: darken($link-color, 10%);
+  }
+}
+
+// List styles
+ul,
+ol {
+  margin-bottom: $medium-spacing;
+  padding-left: $large-spacing;
+}
+
+// Blockquote styles
+blockquote {
+  font-style: italic;
+  border-left: 4px solid $accent-color;
+  padding-left: $medium-spacing;
+  margin-left: 0;
+  margin-bottom: $medium-spacing;
+}
+
+// Code styles
+code {
+  font-family: $code-font;
+  background-color: lighten($secondary-color, 10%);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+// Emphasis
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: $font-weight-bold;
 }

@@ -1,33 +1,62 @@
+// Importăm mai întâi variabilele și mixinurile pentru a le avea disponibile în toate celelalte fișiere
 @import "variables";
 @import "mixins";
+
+// Importăm stilurile de bază și globale
 @import "global";
 @import "typography";
 @import "layout";
 
-// Importă stilurile componentelor
-@import "../components/Layout/Layout.scss";
-@import "../components/Navbar/Navbar.scss";
-@import "../components/Sidebar/Sidebar.scss";
+// Importăm stilurile componentelor (puteți adăuga sau elimina în funcție de nevoile proiectului)
+@import "../components/Navbar/Navbar";
+@import "../components/Sidebar/Sidebar";
+@import "../components/Layout/Layout";
+@import "../components/Navbar/SearchBar";
+@import "../components/Navbar/NotificationsButton";
+@import "../components/Navbar/UserMenuButton";
 
-// Adăugați stiluri globale suplimentare
-body {
-  font-family: "Inter", sans-serif;
-  color: $text-color;
-  background-color: $background-color;
+// Importăm stiluri pentru pagini specifice (adăugați sau eliminați în funcție de nevoile proiectului)
+@import "../pages/Dashboard";
+@import "../pages/Accounting";
+@import "../pages/Financial";
+@import "../pages/Commercial";
+@import "../pages/CreditManagement";
+@import "../pages/Reports";
+
+// Importăm stiluri pentru teme (dacă aveți mai multe teme)
+@import "themes/default";
+// @import 'themes/dark';  // Decomentați dacă aveți o temă întunecată
+
+// Importăm stiluri pentru utilități
+@import "utilities";
+
+// Importăm stiluri pentru animații (dacă este cazul)
+@import "animations";
+
+// Importăm stiluri pentru print (dacă este necesar)
+@import "print";
+
+// Adăugați aici orice alte importuri specifice proiectului dumneavoastră
+
+// Stiluri pentru responsive design (dacă nu sunt deja incluse în fișierele individuale)
+@include breakpoint(small) {
+  // Stiluri pentru ecrane mici
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600;
+@include breakpoint(medium) {
+  // Stiluri pentru ecrane medii
 }
 
-.card {
-  background-color: $background-color;
-  border: 1px solid $border-color;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+@include breakpoint(large) {
+  // Stiluri pentru ecrane mari
 }
+
+@include breakpoint(xlarge) {
+  // Stiluri pentru ecrane foarte mari
+}
+
+@include breakpoint(ylarge) {
+  // Stiluri pentru ecrane extra mari
+}
+
+// Adăugați aici orice alte stiluri globale sau overrides necesare

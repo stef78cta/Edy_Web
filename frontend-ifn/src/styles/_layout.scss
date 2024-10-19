@@ -1,17 +1,144 @@
+@import "variables";
+@import "mixins";
+
+// Container
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $medium-spacing;
+
+  @include breakpoint(large) {
+    padding: 0 $large-spacing;
+  }
 }
 
+// Flex-container
 .flex-container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.grid-container {
+// Grid system
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$small-spacing;
+  margin-left: -$small-spacing;
+}
+
+.col {
+  flex: 1 0 0%;
+  padding-right: $small-spacing;
+  padding-left: $small-spacing;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: percentage($i / 12);
+  }
+}
+
+// Responsive columns
+@include breakpoint(small) {
+  @for $i from 1 through 12 {
+    .col-sm-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
+    }
+  }
+}
+
+@include breakpoint(medium) {
+  @for $i from 1 through 12 {
+    .col-md-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
+    }
+  }
+}
+
+@include breakpoint(large) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
+    }
+  }
+}
+
+// Flexbox utilities
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// Adăugăm clase suplimentare pentru a menține compatibilitatea cu codul existent
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+// Grid
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: $medium-spacing;
+}
+
+// Clase pentru spațiere (păstrate din _global.scss pentru consistență)
+.mt-1 {
+  margin-top: $small-spacing;
+}
+.mt-2 {
+  margin-top: $medium-spacing;
+}
+.mt-3 {
+  margin-top: $large-spacing;
+}
+
+.mb-1 {
+  margin-bottom: $small-spacing;
+}
+.mb-2 {
+  margin-bottom: $medium-spacing;
+}
+.mb-3 {
+  margin-bottom: $large-spacing;
+}
+
+// Clase pentru vizibilitate (păstrate din _global.scss pentru consistență)
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+// Clase pentru aliniere text (păstrate din _global.scss pentru consistență)
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
