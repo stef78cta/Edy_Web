@@ -27,8 +27,4 @@ function CustomPagination() {
   );
 }
 
-const Pagination: React.FC = () => {
-  return <CustomPagination />;
-};
-
-export default Pagination;
+export default CustomPagination;

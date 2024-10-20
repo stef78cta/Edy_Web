@@ -2,6 +2,13 @@
 @import "variables";
 @import "mixins";
 
+// Definim variabilele CSS globale
+:root {
+  --font-size-small: #{$font-size-small};
+  --font-size-medium: #{$font-size-medium};
+  --font-size-large: #{$font-size-large};
+}
+
 // Importăm stilurile de bază și globale
 @import "global";
 @import "typography";
