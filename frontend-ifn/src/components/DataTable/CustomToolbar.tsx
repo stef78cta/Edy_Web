@@ -17,8 +17,12 @@ const CustomToolbar: React.FC<CustomToolbarProps> = ({ title }) => {
     <GridToolbarContainer className="custom-toolbar">
       <Box className="toolbar-content">
         <Box className="toolbar-buttons">
-          <GridToolbarColumnsButton />
-          <GridToolbarFilterButton />
+          <div className="toolbar-button-wrapper">
+            <GridToolbarColumnsButton />
+          </div>
+          <div className="toolbar-button-wrapper">
+            <GridToolbarFilterButton />
+          </div>
         </Box>
         <Typography variant="h6" component="div" className="toolbar-title">
           {title}

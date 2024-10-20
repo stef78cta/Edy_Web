@@ -96,6 +96,28 @@
       gap: $small-spacing;
     }
 
+    .toolbar-button {
+      @include button-reset;
+      @include flex-center;
+      width: auto;
+      min-width: 40px;
+      height: 40px;
+      background-color: $secondary-color;
+      color: $text-color;
+      border-radius: $button-border-radius;
+      padding: 0 $small-spacing;
+      @include transition(background-color, color);
+
+      &:hover {
+        background-color: $accent-color;
+        color: $background-color;
+      }
+
+      .MuiSvgIcon-root {
+        font-size: 20px;
+      }
+    }
+
     .toolbar-title {
       position: absolute;
       left: 50%;
@@ -119,29 +141,64 @@
       max-width: 300px;
 
       .MuiInputBase-root {
-        color: $accent-color;
+        color: $text-color;
+        background-color: $secondary-color;
+        border-radius: $button-border-radius;
+        height: 40px;
         @include transition(all);
 
-        &::before,
-        &::after {
-          border-bottom-color: $accent-color;
+        &:hover {
+          background-color: darken($secondary-color, 5%);
         }
 
-        &:hover:not(.Mui-disabled)::before {
-          border-bottom-width: 2px;
+        &.Mui-focused {
+          background-color: $accent-color;
+          color: $background-color;
+
+          .MuiInputBase-input::placeholder {
+            color: rgba($background-color, 0.7);
+          }
+
+          .MuiSvgIcon-root {
+            color: $background-color;
+          }
         }
       }
 
-      .MuiInputBase-input::placeholder {
-        color: rgba($accent-color, 0.7);
+      .MuiInputBase-input {
+        padding: $small-spacing;
+
+        &::placeholder {
+          color: rgba($text-color, 0.7);
+        }
       }
 
       .MuiSvgIcon-root {
-        color: $accent-color;
+        color: $text-color;
       }
+    }
 
-      .MuiOutlinedInput-notchedOutline {
-        border: none;
+    .toolbar-button-wrapper {
+      .MuiButtonBase-root {
+        @include button-reset;
+        @include flex-center;
+        width: auto;
+        min-width: 40px;
+        height: 40px;
+        background-color: $secondary-color;
+        color: $text-color;
+        border-radius: $button-border-radius;
+        padding: 0 $small-spacing;
+        @include transition(background-color, color);
+
+        &:hover {
+          background-color: $accent-color;
+          color: $background-color;
+        }
+
+        .MuiSvgIcon-root {
+          font-size: 20px;
+        }
       }
     }
   }
