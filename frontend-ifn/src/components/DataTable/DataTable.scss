@@ -33,6 +33,7 @@
     color: $text-color;
     font-weight: $font-weight-bold;
     @include sticky-header;
+    border-bottom: 3px solid $secondary-color; // Adăugăm o bordură mai groasă sub header
   }
 
   .MuiDataGrid-cell {
