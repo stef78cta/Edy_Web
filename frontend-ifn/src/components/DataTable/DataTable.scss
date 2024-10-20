@@ -33,7 +33,7 @@
     color: $text-color;
     font-weight: $font-weight-bold;
     @include sticky-header;
-    border-bottom: 3px solid $secondary-color; // Adăugăm o bordură mai groasă sub header
+    border-bottom: 3px solid $secondary-color;
   }
 
   .MuiDataGrid-cell {
@@ -50,6 +50,84 @@
 
   .MuiDataGrid-footerContainer {
     border-top: 1px solid $border-color;
+  }
+
+  // Păstrăm doar hover-ul pentru rânduri
+  .MuiDataGrid-row:hover {
+    background-color: lighten($secondary-color, 5%);
+  }
+
+  .MuiDataGrid-toolbarContainer {
+    padding: 0;
+    position: relative;
+
+    .MuiButtonBase-root {
+      color: $accent-color;
+
+      &:hover {
+        background-color: rgba($accent-color, 0.1);
+      }
+
+      .MuiSvgIcon-root {
+        fill: $accent-color;
+      }
+    }
+  }
+
+  .custom-toolbar {
+    .toolbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 16px;
+      border-bottom: 1px solid $border-color;
+    }
+
+    .toolbar-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .toolbar-title {
+      font-weight: bold;
+      color: $primary-color;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .quick-filter {
+      .MuiInputBase-root {
+        color: $accent-color;
+        transition: all 0.3s ease;
+
+        &::before {
+          border-bottom: 1px solid $accent-color;
+        }
+
+        &:hover:not(.Mui-disabled)::before {
+          border-bottom: 2px solid $accent-color;
+        }
+
+        &::after {
+          border-bottom: 2px solid $accent-color;
+        }
+      }
+
+      .MuiInputBase-input::placeholder {
+        color: $accent-color;
+        opacity: 0.7;
+      }
+
+      .MuiSvgIcon-root {
+        color: $accent-color;
+      }
+
+      .MuiOutlinedInput-notchedOutline {
+        border: none;
+      }
+    }
   }
 }
 

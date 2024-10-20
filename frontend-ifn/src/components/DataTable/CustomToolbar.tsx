@@ -1,24 +1,30 @@
 import React from "react";
 import {
   GridToolbarContainer,
-  GridToolbarExport,
   GridToolbarFilterButton,
   GridToolbarColumnsButton,
-  GridToolbarDensitySelector,
   GridToolbarQuickFilter,
 } from "@mui/x-data-grid";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
-const CustomToolbar: React.FC = () => {
+interface CustomToolbarProps {
+  title?: string;
+}
+
+const CustomToolbar: React.FC<CustomToolbarProps> = ({ title }) => {
   return (
-    <GridToolbarContainer>
-      <GridToolbarColumnsButton />
-      <GridToolbarFilterButton />
-      <GridToolbarDensitySelector />
-      <GridToolbarExport
-        printOptions={{ disableToolbarButton: true }}
-        csvOptions={{ disableToolbarButton: false }}
-      />
-      <GridToolbarQuickFilter />
+    <GridToolbarContainer className="custom-toolbar">
+      <Box className="toolbar-content">
+        <Box className="toolbar-buttons">
+          <GridToolbarColumnsButton />
+          <GridToolbarFilterButton />
+          <GridToolbarQuickFilter className="quick-filter" />
+        </Box>
+        <Typography variant="h6" component="div" className="toolbar-title">
+          {title}
+        </Typography>
+      </Box>
     </GridToolbarContainer>
   );
 };

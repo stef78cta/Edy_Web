@@ -159,6 +159,7 @@ const App: React.FC = () => {
               rows={rows}
               columns={columns}
               isSidebarOpen={isSidebarOpen}
+              title="Note contabile" // Adăugăm titlul aici
             />
           </section>
         </div>

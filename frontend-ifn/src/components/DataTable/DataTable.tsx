@@ -16,12 +16,14 @@ interface DataTableProps {
   rows: GridRowsProp;
   columns: GridColDef[];
   isSidebarOpen: boolean;
+  title?: string; // Adăugăm prop-ul pentru titlu
 }
 
 const DataTable: React.FC<DataTableProps> = ({
   rows,
   columns,
   isSidebarOpen,
+  title, // Adăugăm titlul în destructurare
 }) => {
   const [paginationModel, setPaginationModel] = useState({
     pageSize: 10,
@@ -66,11 +68,12 @@ const DataTable: React.FC<DataTableProps> = ({
             toolbar: {
               showQuickFilter: true,
               quickFilterProps: { debounceMs: 500 },
+              title, // Asigurați-vă că acest prop este transmis corect
             },
           }}
           disableColumnMenu={false}
           disableColumnSelector={false}
-          disableDensitySelector={false}
+          disableDensitySelector={true}
           disableRowSelectionOnClick
           sortModel={sortModel}
           onSortModelChange={(model) => setSortModel(model)}
