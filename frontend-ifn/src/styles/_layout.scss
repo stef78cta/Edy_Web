@@ -151,12 +151,21 @@
 
 // Actualizăm clasa content-with-sidebar
 .content-with-sidebar {
-  margin-left: 20px;
-  padding: 80px 20px 20px; // Adăugăm padding-top de 80px pentru a lăsa spațiu pentru navbar
-  width: calc(100% - 350px - 20px);
+  margin-left: 40px;
+  padding-top: 80px; // Spațiu pentru navbar
+  width: calc(100% - 350px - 40px);
   transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out;
+  min-height: calc(100vh - 60px); // Înălțime minimă pentru a ocupa tot ecranul
 
   .sidebar-closed & {
-    width: calc(100% - 60px - 20px);
+    width: calc(100% - 60px - 40px);
   }
+}
+
+// Modificăm .content-container pentru a gestiona padding-ul interior
+.content-container {
+  padding: 20px 20px 60px; // Padding sus, stânga/dreapta, jos
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; // Asigură că containerul ocupă toată înălțimea disponibilă
 }
