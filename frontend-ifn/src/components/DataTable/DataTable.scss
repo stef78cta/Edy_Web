@@ -52,27 +52,4 @@
   }
 }
 
-.action-buttons {
-  @include flex-container(8px);
-
-  .action-button {
-    @include button-reset;
-    @include flex-center;
-    width: 40px;
-    height: 40px;
-    background-color: $secondary-color;
-    color: $text-color;
-    border-radius: $button-border-radius;
-    @include transition(background-color);
-
-    &:hover {
-      background-color: darken($secondary-color, 10%);
-    }
-  }
-}
-
-// Adăugăm stilurile pentru tooltip
-.custom-tooltip {
-  font-size: $font-size-small;
-  padding: $small-spacing;
-}
+// Stilurile pentru .action-buttons și .custom-tooltip au fost mutate în ActionButtons.scss

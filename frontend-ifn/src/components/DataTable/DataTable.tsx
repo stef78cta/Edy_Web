@@ -8,7 +8,7 @@ import {
 } from "@mui/x-data-grid";
 import { Paper } from "@mui/material";
 import CustomToolbar from "./CustomToolbar";
-import ActionButtons from "./ActionButtons";
+import ActionButtons from "../Button/ActionButtons";
 import Pagination from "./Pagination";
 import "./DataTable.scss";
 

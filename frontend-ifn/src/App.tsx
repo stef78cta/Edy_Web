@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from "./components/Layout/Layout";
 import Button from "./components/Button/Button";
 import DataTable from "./components/DataTable/DataTable";
+import ActionButtons from "./components/Button/ActionButtons";
 import { GridColDef } from "@mui/x-data-grid";
 import "./styles/main.scss";
 
@@ -84,7 +85,12 @@ const App: React.FC = () => {
             </div>
           </section>
 
-          <section className="my-20">
+          <section className="py-20">
+            <h3>Action Buttons</h3>
+            <ActionButtons />
+          </section>
+
+          <section className="py-20">
             <h3>Tipografie</h3>
             <h1>Bine ați venit la panoul de control Frontend IFN! 1</h1>
             <h2>Bine ați venit la panoul de control Frontend IFN! 2</h2>
@@ -99,7 +105,7 @@ const App: React.FC = () => {
             <a href="#">Acesta este un link</a>
           </section>
 
-          <section className="my-20">
+          <section className="py-20">
             <h3>Liste</h3>
             <ul>
               <li>Element listă neordonată 1</li>
@@ -113,7 +119,7 @@ const App: React.FC = () => {
             </ol>
           </section>
 
-          <section className="my-20">
+          <section className="py-20">
             <h3>Formular</h3>
             <form>
               <div className="mb-2">
@@ -134,7 +140,7 @@ const App: React.FC = () => {
             </form>
           </section>
 
-          <section className="my-20">
+          <section className="py-20">
             <h3>Clase utilitare</h3>
             <div className="text-center">Text centrat</div>
             <div className="text-right">Text aliniat la dreapta</div>
