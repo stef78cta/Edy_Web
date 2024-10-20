@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import {
   DataGrid,
   GridColDef,
@@ -6,24 +6,25 @@ import {
   GridRowsProp,
   GridRowSelectionModel,
 } from "@mui/x-data-grid";
-import { Paper } from "@mui/material";
+import { Paper, Stack } from "@mui/material";
+import Pagination from "@mui/material/Pagination";
+import PaginationItem from "@mui/material/PaginationItem";
 import CustomToolbar from "./CustomToolbar";
 import ActionButtons from "../Button/ActionButtons";
-import Pagination from "./Pagination";
 import "./DataTable.scss";
 
 interface DataTableProps {
   rows: GridRowsProp;
   columns: GridColDef[];
   isSidebarOpen: boolean;
-  title?: string; // Adăugăm prop-ul pentru titlu
+  title?: string;
 }
 
 const DataTable: React.FC<DataTableProps> = ({
   rows,
   columns,
   isSidebarOpen,
-  title, // Adăugăm titlul în destructurare
+  title,
 }) => {
   const [paginationModel, setPaginationModel] = useState({
     pageSize: 10,
@@ -34,7 +35,14 @@ const DataTable: React.FC<DataTableProps> = ({
   );
   const [sortModel, setSortModel] = useState<GridSortModel>([]);
 
-  const gridWrapperRef = useRef<HTMLDivElement>(null);
+  const totalPages = Math.ceil(rows.length / paginationModel.pageSize);
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
+    setPaginationModel({ ...paginationModel, page: value - 1 });
+  };
 
   return (
     <Paper
@@ -45,7 +53,7 @@ const DataTable: React.FC<DataTableProps> = ({
       <div className="action-buttons-container">
         <ActionButtons />
       </div>
-      <div className="data-grid-wrapper" ref={gridWrapperRef}>
+      <div className="data-grid-wrapper">
         <DataGrid
           rows={rows}
           columns={columns}
@@ -62,13 +70,39 @@ const DataTable: React.FC<DataTableProps> = ({
           rowSelectionModel={selectionModel}
           slots={{
             toolbar: CustomToolbar,
-            pagination: Pagination,
+            pagination: () => (
+              <Stack
+                spacing={2}
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                sx={{ padding: 2 }}
+              >
+                <Pagination
+                  count={totalPages}
+                  page={paginationModel.page + 1}
+                  onChange={handlePageChange}
+                  color="primary"
+                  showFirstButton
+                  showLastButton
+                  renderItem={(item) => (
+                    <PaginationItem
+                      {...item}
+                      components={{
+                        first: () => <span>First</span>,
+                        last: () => <span>Last</span>,
+                      }}
+                    />
+                  )}
+                />
+              </Stack>
+            ),
           }}
           slotProps={{
             toolbar: {
               showQuickFilter: true,
               quickFilterProps: { debounceMs: 500 },
-              title, // Asigurați-vă că acest prop este transmis corect
+              title,
             },
           }}
           disableColumnMenu={false}
@@ -78,18 +112,10 @@ const DataTable: React.FC<DataTableProps> = ({
           sortModel={sortModel}
           onSortModelChange={(model) => setSortModel(model)}
           sx={{
-            "& .MuiDataGrid-main": {
-              overflow: "auto",
-            },
-            "& .MuiDataGrid-virtualScroller": {
-              overflow: "auto",
-            },
-            "& .MuiDataGrid-virtualScrollerContent": {
-              minHeight: "100%",
-            },
-            "& .MuiDataGrid-cell:hover": {
-              color: "primary.main",
-            },
+            "& .MuiDataGrid-main": { overflow: "auto" },
+            "& .MuiDataGrid-virtualScroller": { overflow: "auto" },
+            "& .MuiDataGrid-virtualScrollerContent": { minHeight: "100%" },
+            "& .MuiDataGrid-cell:hover": { color: "primary.main" },
             "& .MuiDataGrid-columnHeaders": {
               backgroundColor: "lighten($primary-color, 40%)",
               color: "$text-color",
@@ -98,12 +124,8 @@ const DataTable: React.FC<DataTableProps> = ({
               top: 0,
               zIndex: 2,
             },
-            "& .MuiDataGrid-columnHeaderTitle": {
-              fontWeight: 500,
-            },
-            "& .MuiDataGrid-menuIcon": {
-              color: "$accent-color",
-            },
+            "& .MuiDataGrid-columnHeaderTitle": { fontWeight: 500 },
+            "& .MuiDataGrid-menuIcon": { color: "$accent-color" },
           }}
         />
       </div>

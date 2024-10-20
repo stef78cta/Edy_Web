@@ -1,5 +1,13 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
+@import "../../styles/global";
+
+:root {
+  --accent-color: #{$accent-color};
+  --accent-color-dark: #{darken($accent-color, 10%)};
+  --accent-color-rgb: #{red($accent-color)}, #{green($accent-color)},
+    #{blue($accent-color)};
+}
 
 .data-table-container {
   height: 600px;
@@ -18,7 +26,6 @@
   .data-grid-wrapper {
     flex-grow: 1;
     overflow: auto;
-
     @include scrollbar(8px, $secondary-color);
   }
 
@@ -26,6 +33,7 @@
     border: 2px solid $border-color;
     width: 100%;
     height: 100%;
+    font-family: $primary-font;
   }
 
   .MuiDataGrid-columnHeaders {
@@ -52,17 +60,16 @@
     border-top: 1px solid $border-color;
   }
 
-  // Păstrăm doar hover-ul pentru rânduri
   .MuiDataGrid-row:hover {
     background-color: lighten($secondary-color, 5%);
   }
 
   .MuiDataGrid-toolbarContainer {
-    padding: 0;
-    position: relative;
+    padding: $small-spacing;
 
     .MuiButtonBase-root {
       color: $accent-color;
+      @include transition(background-color);
 
       &:hover {
         background-color: rgba($accent-color, 0.1);
@@ -80,44 +87,53 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 16px;
+      padding: $medium-spacing;
       border-bottom: 1px solid $border-color;
     }
 
     .toolbar-buttons {
       display: flex;
-      gap: 16px;
+      gap: $small-spacing;
     }
 
     .toolbar-title {
-      font-weight: bold;
-      color: $primary-color;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      font-weight: $font-weight-bold;
+      color: $primary-color;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 50%;
+    }
+
+    .toolbar-search {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .quick-filter {
+      width: 100%;
+      max-width: 300px;
+
       .MuiInputBase-root {
         color: $accent-color;
-        transition: all 0.3s ease;
+        @include transition(all);
 
-        &::before {
-          border-bottom: 1px solid $accent-color;
+        &::before,
+        &::after {
+          border-bottom-color: $accent-color;
         }
 
         &:hover:not(.Mui-disabled)::before {
-          border-bottom: 2px solid $accent-color;
-        }
-
-        &::after {
-          border-bottom: 2px solid $accent-color;
+          border-bottom-width: 2px;
         }
       }
 
       .MuiInputBase-input::placeholder {
-        color: $accent-color;
-        opacity: 0.7;
+        color: rgba($accent-color, 0.7);
       }
 
       .MuiSvgIcon-root {
@@ -126,6 +142,36 @@
 
       .MuiOutlinedInput-notchedOutline {
         border: none;
+      }
+    }
+  }
+
+  .MuiPagination-root {
+    @include flex-container(8px);
+
+    .MuiPaginationItem-root {
+      @include button-reset;
+      @include flex-center;
+      width: 40px;
+      height: 40px;
+      background-color: $secondary-color;
+      color: $text-color;
+      border-radius: $button-border-radius;
+      @include transition(background-color, color);
+
+      &:hover,
+      &.Mui-selected {
+        background-color: $accent-color;
+        color: $background-color;
+      }
+
+      &.MuiPaginationItem-page {
+        font-weight: $font-weight-bold;
+      }
+
+      &.MuiPaginationItem-firstLast,
+      &.MuiPaginationItem-previousNext {
+        font-size: $font-size-small;
       }
     }
   }

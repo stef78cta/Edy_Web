@@ -19,11 +19,13 @@ const CustomToolbar: React.FC<CustomToolbarProps> = ({ title }) => {
         <Box className="toolbar-buttons">
           <GridToolbarColumnsButton />
           <GridToolbarFilterButton />
-          <GridToolbarQuickFilter className="quick-filter" />
         </Box>
         <Typography variant="h6" component="div" className="toolbar-title">
           {title}
         </Typography>
+        <Box className="toolbar-search">
+          <GridToolbarQuickFilter className="quick-filter" />
+        </Box>
       </Box>
     </GridToolbarContainer>
   );
