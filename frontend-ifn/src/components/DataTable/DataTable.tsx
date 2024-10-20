@@ -15,9 +15,14 @@ import "./DataTable.scss";
 interface DataTableProps {
   rows: GridRowsProp;
   columns: GridColDef[];
+  isSidebarOpen: boolean;
 }
 
-const DataTable: React.FC<DataTableProps> = ({ rows, columns }) => {
+const DataTable: React.FC<DataTableProps> = ({
+  rows,
+  columns,
+  isSidebarOpen,
+}) => {
   const [paginationModel, setPaginationModel] = useState({
     pageSize: 10,
     page: 0,
@@ -28,7 +33,11 @@ const DataTable: React.FC<DataTableProps> = ({ rows, columns }) => {
   const [sortModel, setSortModel] = useState<GridSortModel>([]);
 
   return (
-    <Paper className="data-table-container">
+    <Paper
+      className={`data-table-container ${
+        isSidebarOpen ? "" : "sidebar-closed"
+      }`}
+    >
       <DataGrid
         rows={rows}
         columns={columns}
@@ -63,6 +72,17 @@ const DataTable: React.FC<DataTableProps> = ({ rows, columns }) => {
         sx={{
           "& .MuiDataGrid-cell:hover": {
             color: "primary.main",
+          },
+          "& .MuiDataGrid-columnHeaders": {
+            position: "sticky",
+            top: 0,
+            zIndex: 1,
+          },
+          "& .MuiDataGrid-menuIcon": {
+            color: "$accent-color",
+          },
+          "& .MuiDataGrid-main": {
+            overflow: "visible", // Permite derularea orizontală
           },
         }}
       />

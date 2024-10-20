@@ -142,3 +142,14 @@
 .text-right {
   text-align: right;
 }
+
+.content-with-sidebar {
+  margin-left: 20px; // Mărit de la $medium-spacing (16px) la 20px
+  padding: 20px; // Mărit de la $medium-spacing (16px) la 20px
+  width: calc(100% - 350px - 20px); // Ajustat pentru noua margine
+  transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out;
+
+  .sidebar-closed & {
+    width: calc(100% - 60px - 20px); // Ajustat pentru noua margine
+  }
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "./components/Layout/Layout";
 import Button from "./components/Button/Button";
 import DataTable from "./components/DataTable/DataTable";
@@ -6,6 +6,8 @@ import { GridColDef } from "@mui/x-data-grid";
 import "./styles/main.scss";
 
 const App: React.FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   const handleAddClick = () => {
     console.log("Butonul a fost apăsat");
     // Aici puteți adăuga logica pentru acțiunea de adăugare
@@ -50,8 +52,12 @@ const App: React.FC = () => {
   ];
 
   return (
-    <Layout>
-      <div className="container">
+    <Layout onSidebarToggle={setIsSidebarOpen}>
+      <div
+        className={`content-with-sidebar ${
+          isSidebarOpen ? "" : "sidebar-closed"
+        }`}
+      >
         <section className="mt-3">
           <h2>Prezentare elemente de stil folosite in aplicatie :</h2>
         </section>
@@ -142,7 +148,11 @@ const App: React.FC = () => {
 
         <section className="mt-3">
           <h3>DataTable Component</h3>
-          <DataTable rows={rows} columns={columns} />
+          <DataTable
+            rows={rows}
+            columns={columns}
+            isSidebarOpen={isSidebarOpen}
+          />
         </section>
       </div>
     </Layout>

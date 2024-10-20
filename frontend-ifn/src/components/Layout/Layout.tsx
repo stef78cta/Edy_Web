@@ -5,22 +5,24 @@ import "./Layout.scss";
 
 interface LayoutProps {
   children: React.ReactNode;
+  onSidebarToggle: (isOpen: boolean) => void;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, onSidebarToggle }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+    onSidebarToggle(!isSidebarOpen);
   };
 
   return (
-    <div className={`layout ${isSidebarOpen ? "" : "sidebar-closed"}`}>
+    <div
+      className={`layout ${isSidebarOpen ? "sidebar-open" : "sidebar-closed"}`}
+    >
+      <Navbar />
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="layout__main">
-        <Navbar />
-        <main className="layout__content">{children}</main>
-      </div>
+      <main className="layout__main">{children}</main>
     </div>
   );
 };
