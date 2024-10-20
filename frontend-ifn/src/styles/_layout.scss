@@ -143,13 +143,20 @@
   text-align: right;
 }
 
+// Adăugăm o nouă clasă pentru marginea de 20px sus și jos
+.py-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+// Actualizăm clasa content-with-sidebar
 .content-with-sidebar {
-  margin-left: 20px; // Mărit de la $medium-spacing (16px) la 20px
-  padding: 20px; // Mărit de la $medium-spacing (16px) la 20px
-  width: calc(100% - 350px - 20px); // Ajustat pentru noua margine
+  margin-left: 20px;
+  padding: 80px 20px 20px; // Adăugăm padding-top de 80px pentru a lăsa spațiu pentru navbar
+  width: calc(100% - 350px - 20px);
   transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out;
 
   .sidebar-closed & {
-    width: calc(100% - 60px - 20px); // Ajustat pentru noua margine
+    width: calc(100% - 60px - 20px);
   }
 }
