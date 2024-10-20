@@ -22,7 +22,13 @@ const Layout: React.FC<LayoutProps> = ({ children, onSidebarToggle }) => {
     >
       <Navbar />
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <main className="layout__main">{children}</main>
+      <main
+        className={`layout__main ${
+          isSidebarOpen ? "sidebar-open" : "sidebar-closed"
+        }`}
+      >
+        {children}
+      </main>
     </div>
   );
 };

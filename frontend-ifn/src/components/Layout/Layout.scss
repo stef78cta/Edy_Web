@@ -11,11 +11,10 @@
   &__main {
     flex: 1;
     margin-left: 350px; // Lățimea sidebar-ului deschis
-    transition: margin-left 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; // Adăugăm această linie
-    height: 100vh; // Adăugăm această linie
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+    width: calc(100% - 350px);
+    padding: $medium-spacing;
+    padding-top: 80px; // Pentru a lăsa spațiu pentru navbar
 
     @include breakpoint(small) {
       margin-left: 60px; // Ajustăm pentru sidebar-ul închis
@@ -35,6 +34,11 @@
 
     @include breakpoint(ylarge) {
       // Ajustări pentru ecrane extra mari
+    }
+
+    &.sidebar-closed {
+      margin-left: 60px; // Lățimea sidebar-ului închis
+      width: calc(100% - 60px);
     }
   }
 
