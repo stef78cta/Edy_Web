@@ -63,3 +63,34 @@
 }
 
 // Adăugați aici orice alte stiluri globale sau overrides necesare
+
+// Stiluri pentru scroll invizibil și subțire
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+// Aplicăm aceste stiluri specific pentru App
+.App {
+  overflow-y: auto;
+  height: 100vh;
+}
