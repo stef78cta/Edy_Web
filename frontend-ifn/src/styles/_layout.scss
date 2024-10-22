@@ -12,12 +12,15 @@
     padding: 0 $large-spacing;
   }
 }
+// Definim un container cu o lățime maximă de 1200px care se centrează orizontal pe pagină.
+// Folosim variabilele pentru spațiere la stânga și dreapta în funcție de breakpoint-uri.
 
 // Flex-container
 .flex-container {
   display: flex;
   flex-wrap: wrap;
 }
+// Creează un container flex care permite elementelor interne să se alinieze pe linii multiple, dacă e nevoie (datorită `flex-wrap: wrap`).
 
 // Grid system
 .row {
@@ -26,12 +29,14 @@
   margin-right: -$small-spacing;
   margin-left: -$small-spacing;
 }
+// Sistem de grid, unde fiecare `.row` folosește flexbox și elimină spațiul extra la marginile exterioare.
 
 .col {
   flex: 1 0 0%;
   padding-right: $small-spacing;
   padding-left: $small-spacing;
 }
+// Fiecare coloană ocupă spațiu flexibil și are padding pe părțile laterale pentru a lăsa spațiu între coloane.
 
 @for $i from 1 through 12 {
   .col-#{$i} {
@@ -39,6 +44,7 @@
     width: percentage($i / 12);
   }
 }
+// Iterăm de la 1 la 12 și creăm clase `.col-1`, `.col-2` până la `.col-12` care definesc lățimi bazate pe gridul de 12 coloane. De exemplu, `.col-6` va avea 50% lățime.
 
 // Responsive columns
 @include breakpoint(small) {
@@ -49,6 +55,7 @@
     }
   }
 }
+// Definim coloane responsive pentru breakpoint-ul "small" (coloane care se ajustează în funcție de dimensiunea ecranului mic).
 
 @include breakpoint(medium) {
   @for $i from 1 through 12 {
@@ -58,6 +65,7 @@
     }
   }
 }
+// Definim coloane responsive pentru breakpoint-ul "medium".
 
 @include breakpoint(large) {
   @for $i from 1 through 12 {
@@ -67,42 +75,51 @@
     }
   }
 }
+// Definim coloane responsive pentru breakpoint-ul "large".
 
 // Flexbox utilities
 .d-flex {
   display: flex;
 }
+// Clasă pentru a face orice element să folosească flexbox.
 
 .flex-column {
   flex-direction: column;
 }
+// Clasă pentru a schimba direcția elementelor flex într-o coloană.
 
 .justify-content-center {
   justify-content: center;
 }
+// Clasă pentru a centra conținutul pe axa orizontală în flexbox.
 
 .align-items-center {
   align-items: center;
 }
+// Clasă pentru a alinia elementele pe axa verticală.
 
 .flex-wrap {
   flex-wrap: wrap;
 }
+// Permite elementelor să se împacheteze pe linii multiple într-un container flex.
 
 // Adăugăm clase suplimentare pentru a menține compatibilitatea cu codul existent
 .justify-center {
   justify-content: center;
 }
+// Alias pentru `justify-content-center` pentru a păstra compatibilitatea cu codurile vechi.
 
 .align-center {
   align-items: center;
 }
+// Alias pentru `align-items-center`.
 
 // Grid
 .grid {
   display: grid;
   gap: $medium-spacing;
 }
+// Definim o clasă `.grid` pentru layout bazat pe CSS Grid, cu spațiere între elemente (gap).
 
 // Clase pentru spațiere (păstrate din _global.scss pentru consistență)
 .mt-1 {
@@ -114,6 +131,7 @@
 .mt-3 {
   margin-top: $large-spacing;
 }
+// Clase pentru margini superioare (top margin) de diferite mărimi.
 
 .mb-1 {
   margin-bottom: $small-spacing;
@@ -124,30 +142,36 @@
 .mb-3 {
   margin-bottom: $large-spacing;
 }
+// Clase pentru margini inferioare (bottom margin) de diferite mărimi.
 
 // Clase pentru vizibilitate (păstrate din _global.scss pentru consistență)
 .hidden {
   display: none;
 }
+// Ascunde complet un element.
 
 .visible {
   display: block;
 }
+// Afișează un element ca block (în linie separată).
 
 // Clase pentru aliniere text (păstrate din _global.scss pentru consistență)
 .text-center {
   text-align: center;
 }
+// Aliniază textul la centru.
 
 .text-right {
   text-align: right;
 }
+// Aliniază textul la dreapta.
 
 // Adăugăm o nouă clasă pentru marginea de 20px sus și jos
 .py-20 {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+// O clasă utilitară pentru padding de 20px atât sus cât și jos.
 
 // Actualizăm clasa content-with-sidebar
 .content-with-sidebar {
@@ -161,6 +185,7 @@
     width: calc(100% - 60px - 40px);
   }
 }
+// Definim un layout pentru conținutul care apare alături de un sidebar. Când sidebar-ul este deschis, are 350px lățime, iar când e închis, doar 60px. Lățimea conținutului se ajustează corespunzător.
 
 // Modificăm .content-container pentru a gestiona padding-ul interior
 .content-container {
@@ -169,3 +194,4 @@
   flex-direction: column;
   min-height: 100%; // Asigură că containerul ocupă toată înălțimea disponibilă
 }
+// Definim un container pentru conținut care are padding fix și ocupă 100% din înălțimea disponibilă. Flexbox-ul este utilizat pentru alinierea internă.
