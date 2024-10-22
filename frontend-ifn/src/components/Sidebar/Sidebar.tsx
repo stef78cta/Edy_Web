@@ -1,4 +1,5 @@
 import React, { useState } from "react"; // Importă React și hook-ul useState din biblioteca React
+import { Link } from "react-router-dom"; // Importă componenta Link din react-router-dom
 import SidebarHeader from "./SidebarHeader"; // Importă componenta SidebarHeader
 import SidebarItem from "./SidebarItem"; // Importă componenta SidebarItem
 import SidebarSubMenu from "./SidebarSubMenu"; // Importă componenta SidebarSubMenu
@@ -52,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               <li key={item.label} className="sidebar__nav-item">
                 {" "}
                 {/* Afișează fiecare element de meniu ca un <li>, folosind label-ul ca cheie */}
-                {item.subItems ? ( // Dacă elementul de meniu are submeniuri (subItems)
+                {item.subItems ? (
                   <SidebarSubMenu
                     item={item} // Trimite datele elementului către componenta SidebarSubMenu
                     isOpen={isOpen} // Trimite starea deschis/închis a sidebar-ului
@@ -61,12 +62,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                     toggleMenuItem={toggleMenuItem} // Funcția care schimbă starea de extindere/selectare
                   />
                 ) : (
-                  <SidebarItem
-                    item={item} // Trimite datele elementului către componenta SidebarItem
-                    isOpen={isOpen} // Trimite starea deschis/închis a sidebar-ului
-                    selectedItem={selectedItem} // Trimite elementul selectat curent
-                    toggleMenuItem={toggleMenuItem} // Funcția care schimbă starea de extindere/selectare
-                  />
+                  <Link to={item.path || "/"}>
+                    <SidebarItem
+                      item={item} // Trimite datele elementului către componenta SidebarItem
+                      isOpen={isOpen} // Trimite starea deschis/închis a sidebar-ului
+                      selectedItem={selectedItem} // Trimite elementul selectat curent
+                      toggleMenuItem={toggleMenuItem} // Funcția care schimbă starea de extindere/selectare
+                    />
+                  </Link>
                 )}
               </li>
             )

@@ -1,6 +1,7 @@
 import React from "react";
 import { MenuItem } from "./SidebarData";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface SidebarSubMenuProps {
   item: MenuItem;
@@ -43,9 +44,9 @@ const SidebarSubMenu: React.FC<SidebarSubMenuProps> = ({
         <ul className="sidebar__subnav">
           {item.subItems.map((subItem) => (
             <li key={subItem.label} className="sidebar__subnav-item">
-              <a href="#" className="sidebar__subnav-link">
+              <Link to={subItem.path || "#"} className="sidebar__subnav-link">
                 {subItem.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

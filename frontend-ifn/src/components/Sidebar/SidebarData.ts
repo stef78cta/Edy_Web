@@ -16,6 +16,7 @@ import {
 export interface MenuItem {
   label: string;
   icon: React.ElementType;
+  path?: string;
   subItems?: MenuItem[];
 }
 
@@ -23,18 +24,47 @@ export const menuItems: MenuItem[] = [
   {
     label: "Tablou de bord",
     icon: LayoutDashboard,
+    path: "/",
   },
   {
     label: "Contabilitate",
     icon: BookOpen,
     subItems: [
-      { label: "Note contabile", icon: Circle },
-      { label: "Mijloace fixe", icon: Circle },
-      { label: "Declaratii fiscale", icon: Circle },
-      { label: "Jurnale de TVA", icon: Circle },
-      { label: "Situatii contabile", icon: Circle },
-      { label: "Raportari BNR", icon: Circle },
-      { label: "Blocare perioada", icon: Circle },
+      {
+        label: "Note contabile",
+        icon: Circle,
+        path: "/contabilitate/note-contabile",
+      },
+      {
+        label: "Mijloace fixe",
+        icon: Circle,
+        path: "/contabilitate/mijloace-fixe",
+      },
+      {
+        label: "Declaratii fiscale",
+        icon: Circle,
+        path: "/contabilitate/declaratii-fiscale",
+      },
+      {
+        label: "Jurnale de TVA",
+        icon: Circle,
+        path: "/contabilitate/jurnale-tva",
+      },
+      {
+        label: "Situatii contabile",
+        icon: Circle,
+        path: "/contabilitate/situatii-contabile",
+      },
+      {
+        label: "Raportari BNR",
+        icon: Circle,
+        path: "/contabilitate/raportari-bnr",
+      },
+      {
+        label: "Blocare perioada",
+        icon: Circle,
+        path: "/contabilitate/blocare-perioada",
+      },
     ],
   },
   {
