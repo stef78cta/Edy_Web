@@ -71,36 +71,100 @@ export const menuItems: MenuItem[] = [
     label: "Financiar",
     icon: DollarSign,
     subItems: [
-      { label: "Operatiuni de trezorerie in LEI", icon: Circle },
-      { label: "Operatiuni de trezorerie in VALUTA", icon: Circle },
-      { label: "Cheltuieli in avans", icon: Circle },
-      { label: "Vanzari", icon: Circle },
-      { label: "Incasari", icon: Circle },
-      { label: "Documente primite", icon: Circle },
-      { label: "Plati", icon: Circle },
-      { label: "Bonuri de consum", icon: Circle },
+      {
+        label: "Operatiuni de trezorerie in LEI",
+        icon: Circle,
+        path: "/financiar/operatiuni-trezorerie-lei",
+      },
+      {
+        label: "Operatiuni de trezorerie in VALUTA",
+        icon: Circle,
+        path: "/financiar/operatiuni-trezorerie-valuta",
+      },
+      {
+        label: "Cheltuieli in avans",
+        icon: Circle,
+        path: "/financiar/cheltuieli-avans",
+      },
+      { label: "Vanzari", icon: Circle, path: "/financiar/vanzari" },
+      {
+        label: "Incasari",
+        icon: Circle,
+        path: "/financiar/incasari-contracte",
+      },
+      {
+        label: "Documente primite",
+        icon: Circle,
+        path: "/financiar/documente-primite",
+      },
+      { label: "Plati", icon: Circle, path: "/financiar/plati" },
+      {
+        label: "Bonuri de consum",
+        icon: Circle,
+        path: "/financiar/bonuri-consum",
+      },
     ],
   },
   {
     label: "Comercial",
     icon: ShoppingCart,
     subItems: [
-      { label: "Simulare credit", icon: Circle },
-      { label: "Solicitari clienti", icon: Circle },
+      {
+        label: "Simulare credit",
+        icon: Circle,
+        path: "/comercial/simulare-credit",
+      },
+      {
+        label: "Solicitari clienti",
+        icon: Circle,
+        path: "/comercial/solicitari-clienti",
+      },
     ],
   },
   {
     label: "Administrare credite",
     icon: Settings,
     subItems: [
-      { label: "Contracte", icon: Circle },
-      { label: "Comisioane la contracte", icon: Circle },
-      { label: "Trageri la contracte", icon: Circle },
-      { label: "Acte aditionale", icon: Circle },
-      { label: "Incasari la contracte", icon: Circle },
-      { label: "Garantii", icon: Circle },
-      { label: "Cereri de executare", icon: Circle },
-      { label: "Polite de asigurare", icon: Circle },
+      {
+        label: "Contracte",
+        icon: Circle,
+        path: "/administrare-credite/contracte",
+      },
+      {
+        label: "Comisioane la contracte",
+        icon: Circle,
+        path: "/administrare-credite/comisioane-contracte",
+      },
+      {
+        label: "Trageri la contracte",
+        icon: Circle,
+        path: "/administrare-credite/trageri-contracte",
+      },
+      {
+        label: "Acte aditionale",
+        icon: Circle,
+        path: "/administrare-credite/acte-aditionale",
+      },
+      {
+        label: "Incasari la contracte",
+        icon: Circle,
+        path: "/administrare-credite/incasari-contracte",
+      },
+      {
+        label: "Garantii",
+        icon: Circle,
+        path: "/administrare-credite/garantii",
+      },
+      {
+        label: "Cereri de executare",
+        icon: Circle,
+        path: "/administrare-credite/cereri-executare",
+      },
+      {
+        label: "Polite de asigurare",
+        icon: Circle,
+        path: "/administrare-credite/polite-asigurare",
+      },
     ],
   },
   {
