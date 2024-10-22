@@ -1,0 +1,56 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.blocare-perioada {
+  padding: 20px;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 15px;
+  }
+
+  .py-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  ul,
+  ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+
+  form {
+    max-width: 400px;
+    margin-bottom: 20px;
+
+    .mb-2 {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  // Adăugați aici stiluri suplimentare specifice paginii Blocare Perioada
+}
